@@ -19,29 +19,29 @@
 //
 //////////////////////////////////////////////////////////////////////////////////
 module BancoRegistro #(      		 //   #( Parametros
-         parameter BIT_ADDR = 3,  //   BIT_ADDR Número de bit para la dirección
+         parameter BIT_ADDR = 8,  //   BIT_ADDR Número de bit para la dirección
          parameter BIT_DATO = 4  //  BIT_DATO  Número de bit para el dato
 	)
 	(
-    input [BIT_ADDR-1:0] addrRa, // Dirección registro número 1
-    input [BIT_ADDR-1:0] addrRb, // Dirección registro número 2
+    input [BIT_ADDR-1:0] addrRa,
+    input [BIT_ADDR-1:0] addrRb,
     
-	 output [BIT_DATO-1:0] datOutRa, // Dato del registro 1
-    output [BIT_DATO-1:0] datOutRb, // Dato del registro 2
+	 output [BIT_DATO-1:0] datOutRa,
+    output [BIT_DATO-1:0] datOutRb,
     
-	 input [BIT_ADDR:0] addrW, // Indico el registro a actualizar
-    input [BIT_DATO-1:0] datW, // Indico el nuevo dato
+	 input [BIT_ADDR:0] addrW,
+    input [BIT_DATO-1:0] datW,
     
-	 input RegWrite, // HIGH para poder actualziar 
+	 input RegWrite,
     input clk,
     input rst
     );
 
 // La cantdiad de registros es igual a: 
-localparam NREG = 2 ** BIT_ADDR; // Cantidad de registro 2^3 = 8
+localparam NREG = 2 ** BIT_ADDR;
   
 //configiración del banco de registro 
-reg [BIT_DATO-1: 0] breg [NREG-1:0]; // Cantidad de palabra (columnas) - Cantidad de registro (filas)
+reg [BIT_DATO-1: 0] breg [NREG-1:0];
 
 
 assign  datOutRa = breg[addrRa];
@@ -51,6 +51,7 @@ always @(posedge clk) begin
 	if (RegWrite == 1)
      breg[addrW] <= datW;
   end
+
 
 
 endmodule
