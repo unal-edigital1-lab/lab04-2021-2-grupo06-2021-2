@@ -1,0 +1,8 @@
+module Lab04(addrA, addrB, addrW, datW, regWrite, clk, rst, datA, datB);
+
+// Definir I/O
+
+//
+
+
+endmodule
