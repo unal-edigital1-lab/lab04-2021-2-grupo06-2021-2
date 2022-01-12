@@ -21,8 +21,20 @@ module Lab04 (addrA, addrB, addrW, datW, regWrite, clk, rst, sseg, an);
 	
 	// BancoRegistro(parametrizar/instanciar entradas)
 
+	BancoRegistro bancoregistro(
+		.addrRa(addrRa), 
+		.addrRb(addrRb), 
+		.datOutRa(datOutRa), 
+		.datOutRb(datOutRb), 
+		.addrW(addrW), 
+		.datW(datW), 
+		.RegWrite(RegWrite), 
+		.clk(clk), 
+		.rst(rst)
+	);
+	
 	// Display()
 	
-	display Display(.num, .clk(clk), .sseg(sseg), .an(an), .rst(rst));
+	//display display();
 
 endmodule
