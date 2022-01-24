@@ -1,16 +1,16 @@
-module Lab04 (addrA, addrB, addrW, datW, regWrite, clk, rst, sseg, an);
+module Lab04 (addrA, addrB, addrw, datw, Regwrite, clk, rst, SSeg, An);
 
 // Definir I/O
 	input [3:0] addrA;
 	input [3:0] addrB;
-	input [3:0] addrW;
-	input [3:0] datW;
+	input [3:0] addrw;
+	input [3:0] datw;
 	input clk;
 	input rst;
-	input regWrite;
+	input Regwrite;
 
-	output [0:6] sseg;
-	output [3:0] an;
+	output [0:6] SSeg;
+	output [3:0] An;
 
 
 // Definir Wire(datA, datB)/Registros
@@ -19,22 +19,24 @@ module Lab04 (addrA, addrB, addrW, datW, regWrite, clk, rst, sseg, an);
 
 // Instanciar modulos
 	
-	// BancoRegistro(parametrizar/instanciar entradas)
 
-	BancoRegistro bancoregistro(
-		.addrRa(addrRa), 
-		.addrRb(addrRb), 
-		.datOutRa(datOutRa), 
-		.datOutRb(datOutRb), 
-		.addrW(addrW), 
-		.datW(datW), 
-		.RegWrite(RegWrite), 
-		.clk(clk), 
-		.rst(rst)
-	);
+BancoRegistro #(3,4) registro(
+	.addrRa(addrA), 
+	.addrRb(addrB), 
+	.addrW(addrw), 
+	.datW(datw), 
+	.RegWrite(Regwrite),
+	.clk(clk), 
+	.rst(rst), 
+	.datOutRa(datA), 
+	.datOutRb(datB));
 	
-	// Display()
+display dp(
+	.numA(datA),
+	//.numB(datB),
+	.clk(clk), 
+	.rst(rst), 
+	.sseg(SSeg), 
+	.an(An));
 	
-	//display display();
-
 endmodule
