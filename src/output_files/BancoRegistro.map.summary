@@ -1,12 +1,12 @@
-Analysis & Synthesis Status : Successful - Sun Jan 23 20:54:08 2022
+Analysis & Synthesis Status : Successful - Mon Jan 24 10:41:24 2022
 Quartus Prime Version : 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 Revision Name : BancoRegistro
 Top-level Entity Name : Lab04
 Family : Cyclone IV E
-Total logic elements : 90
-    Total combinational functions : 58
-    Dedicated logic registers : 59
-Total registers : 59
+Total logic elements : 110
+    Total combinational functions : 78
+    Dedicated logic registers : 57
+Total registers : 57
 Total pins : 30
 Total virtual pins : 0
 Total memory bits : 0

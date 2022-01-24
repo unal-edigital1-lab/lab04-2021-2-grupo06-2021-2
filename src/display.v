@@ -1,7 +1,7 @@
 `timescale 1ns / 1ps
 module display(
-    input [15:0] numA,
-	 //input [3:0] numB,
+    input [3:0] numA,
+	 input [3:0] numB,
     input clk,
     output [0:6] sseg,
     output reg [3:0] an,
@@ -39,9 +39,9 @@ always @(posedge enable) begin
 			an<=4'b1101; 
 			case (count) 
 				2'h0: begin bcd <= numA[3:0];   an<=4'b1110; end 
-				2'h1: begin bcd <= numA[7:4];   an<=4'b1101; end 
-				2'h2: begin bcd <= numA[11:8];  an<=4'b1011; end 
-				2'h3: begin bcd <= numA[15:12]; an<=4'b0111; end 
+				2'h1: begin bcd <= numB[3:0];   an<=4'b1101; end 
+				//2'h2: begin bcd <= numA[11:8];  an<=4'b1011; end 
+				//2'h3: begin bcd <= numA[15:12]; an<=4'b0111; end 
 			endcase
 		end
 end

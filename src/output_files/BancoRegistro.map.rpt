@@ -1,5 +1,5 @@
 Analysis & Synthesis report for BancoRegistro
-Sun Jan 23 20:54:08 2022
+Mon Jan 24 10:41:24 2022
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -15,8 +15,8 @@ Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
   7. Analysis & Synthesis Resource Utilization by Entity
   8. Registers Removed During Synthesis
   9. General Register Statistics
- 10. Parameter Settings for User Entity Instance: BancoRegistro:registro
- 11. Port Connectivity Checks: "display:dp"
+ 10. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 11. Parameter Settings for User Entity Instance: BancoRegistro:registro
  12. Port Connectivity Checks: "BancoRegistro:registro"
  13. Post-Synthesis Netlist Statistics for Top Partition
  14. Elapsed Time Per Partition
@@ -47,15 +47,15 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sun Jan 23 20:54:08 2022       ;
+; Analysis & Synthesis Status        ; Successful - Mon Jan 24 10:41:24 2022       ;
 ; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
 ; Revision Name                      ; BancoRegistro                               ;
 ; Top-level Entity Name              ; Lab04                                       ;
 ; Family                             ; Cyclone IV E                                ;
-; Total logic elements               ; 90                                          ;
-;     Total combinational functions  ; 58                                          ;
-;     Dedicated logic registers      ; 59                                          ;
-; Total registers                    ; 59                                          ;
+; Total logic elements               ; 110                                         ;
+;     Total combinational functions  ; 78                                          ;
+;     Dedicated logic registers      ; 57                                          ;
+; Total registers                    ; 57                                          ;
 ; Total pins                         ; 30                                          ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0                                           ;
@@ -185,20 +185,20 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+-----------+
 ; Resource                                    ; Usage     ;
 +---------------------------------------------+-----------+
-; Estimated Total logic elements              ; 90        ;
+; Estimated Total logic elements              ; 110       ;
 ;                                             ;           ;
-; Total combinational functions               ; 58        ;
+; Total combinational functions               ; 78        ;
 ; Logic element usage by number of LUT inputs ;           ;
-;     -- 4 input functions                    ; 35        ;
-;     -- 3 input functions                    ; 0         ;
-;     -- <=2 input functions                  ; 23        ;
+;     -- 4 input functions                    ; 47        ;
+;     -- 3 input functions                    ; 10        ;
+;     -- <=2 input functions                  ; 21        ;
 ;                                             ;           ;
 ; Logic elements by mode                      ;           ;
-;     -- normal mode                          ; 42        ;
+;     -- normal mode                          ; 62        ;
 ;     -- arithmetic mode                      ; 16        ;
 ;                                             ;           ;
-; Total registers                             ; 59        ;
-;     -- Dedicated logic registers            ; 59        ;
+; Total registers                             ; 57        ;
+;     -- Dedicated logic registers            ; 57        ;
 ;     -- I/O registers                        ; 0         ;
 ;                                             ;           ;
 ; I/O pins                                    ; 30        ;
@@ -207,8 +207,8 @@ https://fpgasoftware.intel.com/eula.
 ;                                             ;           ;
 ; Maximum fan-out node                        ; clk~input ;
 ; Maximum fan-out                             ; 49        ;
-; Total fan-out                               ; 402       ;
-; Average fan-out                             ; 2.27      ;
+; Total fan-out                               ; 474       ;
+; Average fan-out                             ; 2.43      ;
 +---------------------------------------------+-----------+
 
 
@@ -217,22 +217,23 @@ https://fpgasoftware.intel.com/eula.
 +-----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------+---------------+--------------+
 ; Compilation Hierarchy Node  ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                   ; Entity Name   ; Library Name ;
 +-----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------+---------------+--------------+
-; |Lab04                      ; 58 (0)              ; 59 (0)                    ; 0           ; 0            ; 0       ; 0         ; 30   ; 0            ; |Lab04                                ; Lab04         ; work         ;
-;    |BancoRegistro:registro| ; 20 (20)             ; 32 (32)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Lab04|BancoRegistro:registro         ; BancoRegistro ; work         ;
-;    |display:dp|             ; 38 (31)             ; 27 (27)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Lab04|display:dp                     ; display       ; work         ;
+; |Lab04                      ; 78 (0)              ; 57 (0)                    ; 0           ; 0            ; 0       ; 0         ; 30   ; 0            ; |Lab04                                ; Lab04         ; work         ;
+;    |BancoRegistro:registro| ; 44 (44)             ; 32 (32)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Lab04|BancoRegistro:registro         ; BancoRegistro ; work         ;
+;    |display:dp|             ; 34 (27)             ; 25 (25)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Lab04|display:dp                     ; display       ; work         ;
 ;       |BCDtoSSeg:bcdtosseg| ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Lab04|display:dp|BCDtoSSeg:bcdtosseg ; BCDtoSSeg     ; work         ;
 +-----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------+---------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
-+-------------------------------------------------------------+
-; Registers Removed During Synthesis                          ;
-+----------------------------------------+--------------------+
-; Register name                          ; Reason for Removal ;
-+----------------------------------------+--------------------+
-; display:dp|cfreq[17..26]               ; Lost fanout        ;
-; Total Number of Removed Registers = 10 ;                    ;
-+----------------------------------------+--------------------+
++---------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                              ;
++----------------------------------------+----------------------------------------+
+; Register name                          ; Reason for Removal                     ;
++----------------------------------------+----------------------------------------+
+; display:dp|an[2,3]                     ; Stuck at VCC due to stuck port data_in ;
+; display:dp|cfreq[17..26]               ; Lost fanout                            ;
+; Total Number of Removed Registers = 12 ;                                        ;
++----------------------------------------+----------------------------------------+
 
 
 +------------------------------------------------------+
@@ -240,7 +241,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 59    ;
+; Total registers                              ; 57    ;
 ; Number of registers using Synchronous Clear  ; 18    ;
 ; Number of registers using Synchronous Load   ; 4     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
@@ -248,6 +249,15 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; Number of registers using Clock Enable       ; 36    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                           ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |Lab04|display:dp|bcd[2]   ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
 
 
 +---------------------------------------------------------------------+
@@ -261,24 +271,14 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "display:dp"                                                                                                                                   ;
-+------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port ; Type  ; Severity ; Details                                                                                                                                        ;
-+------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------+
-; numA ; Input ; Warning  ; Input port expression (4 bits) is smaller than the input port (16 bits) it drives.  Extra input bit(s) "numA[15..4]" will be connected to GND. ;
-+------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------+
-
-
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "BancoRegistro:registro"                                                                                                                                                              ;
-+----------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port     ; Type   ; Severity ; Details                                                                                                                                                                          ;
-+----------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; addrRa   ; Input  ; Warning  ; Input port expression (4 bits) is wider than the input port (3 bits) it drives.  The 1 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
-; addrRb   ; Input  ; Warning  ; Input port expression (4 bits) is wider than the input port (3 bits) it drives.  The 1 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
-; datOutRb ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                                                              ;
-+----------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "BancoRegistro:registro"                                                                                                                                                           ;
++--------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port   ; Type  ; Severity ; Details                                                                                                                                                                          ;
++--------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; addrRa ; Input ; Warning  ; Input port expression (4 bits) is wider than the input port (3 bits) it drives.  The 1 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; addrRb ; Input ; Warning  ; Input port expression (4 bits) is wider than the input port (3 bits) it drives.  The 1 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
++--------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 
 +-----------------------------------------------------+
@@ -287,21 +287,23 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
 ; boundary_port         ; 30                          ;
-; cycloneiii_ff         ; 59                          ;
-;     ENA               ; 36                          ;
+; cycloneiii_ff         ; 57                          ;
+;     ENA               ; 32                          ;
+;     ENA SLD           ; 4                           ;
 ;     SCLR              ; 18                          ;
-;     SLD               ; 4                           ;
-;     plain             ; 1                           ;
-; cycloneiii_lcell_comb ; 59                          ;
+;     plain             ; 3                           ;
+; cycloneiii_lcell_comb ; 80                          ;
 ;     arith             ; 16                          ;
 ;         2 data inputs ; 16                          ;
-;     normal            ; 43                          ;
+;     normal            ; 64                          ;
+;         0 data inputs ; 1                           ;
 ;         1 data inputs ; 2                           ;
-;         2 data inputs ; 6                           ;
-;         4 data inputs ; 35                          ;
+;         2 data inputs ; 4                           ;
+;         3 data inputs ; 10                          ;
+;         4 data inputs ; 47                          ;
 ;                       ;                             ;
 ; Max LUT depth         ; 3.00                        ;
-; Average LUT depth     ; 1.99                        ;
+; Average LUT depth     ; 2.11                        ;
 +-----------------------+-----------------------------+
 
 
@@ -320,7 +322,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
-    Info: Processing started: Sun Jan 23 20:53:58 2022
+    Info: Processing started: Mon Jan 24 10:41:11 2022
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off BancoRegistro -c BancoRegistro
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -342,26 +344,26 @@ Warning (10230): Verilog HDL assignment warning at display.v(38): truncated valu
 Info (12128): Elaborating entity "BCDtoSSeg" for hierarchy "display:dp|BCDtoSSeg:bcdtosseg" File: C:/Users/Santiago/Documents/GitHub/lab04-2021-2-grupo06-2021-2/src/display.v Line: 15
 Info (276014): Found 1 instances of uninferred RAM logic
     Info (276004): RAM logic "BancoRegistro:registro|breg" is uninferred due to inappropriate RAM size File: C:/Users/Santiago/Documents/GitHub/lab04-2021-2-grupo06-2021-2/src/BancoRegistro.v Line: 44
-Warning (12241): 2 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "An[2]" is stuck at VCC File: C:/Users/Santiago/Documents/GitHub/lab04-2021-2-grupo06-2021-2/src/Lab04.v Line: 13
+    Warning (13410): Pin "An[3]" is stuck at VCC File: C:/Users/Santiago/Documents/GitHub/lab04-2021-2-grupo06-2021-2/src/Lab04.v Line: 13
 Info (286030): Timing-Driven Synthesis is running
 Info (17049): 10 registers lost all their fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 6 input pin(s) that do not drive logic
+Warning (21074): Design contains 3 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "addrA[3]" File: C:/Users/Santiago/Documents/GitHub/lab04-2021-2-grupo06-2021-2/src/Lab04.v Line: 4
     Warning (15610): No output dependent on input pin "addrB[3]" File: C:/Users/Santiago/Documents/GitHub/lab04-2021-2-grupo06-2021-2/src/Lab04.v Line: 5
     Warning (15610): No output dependent on input pin "addrw[3]" File: C:/Users/Santiago/Documents/GitHub/lab04-2021-2-grupo06-2021-2/src/Lab04.v Line: 6
-    Warning (15610): No output dependent on input pin "addrB[0]" File: C:/Users/Santiago/Documents/GitHub/lab04-2021-2-grupo06-2021-2/src/Lab04.v Line: 5
-    Warning (15610): No output dependent on input pin "addrB[1]" File: C:/Users/Santiago/Documents/GitHub/lab04-2021-2-grupo06-2021-2/src/Lab04.v Line: 5
-    Warning (15610): No output dependent on input pin "addrB[2]" File: C:/Users/Santiago/Documents/GitHub/lab04-2021-2-grupo06-2021-2/src/Lab04.v Line: 5
-Info (21057): Implemented 121 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 140 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 19 input pins
     Info (21059): Implemented 11 output pins
-    Info (21061): Implemented 91 logic cells
+    Info (21061): Implemented 110 logic cells
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 13 warnings
-    Info: Peak virtual memory: 4765 megabytes
-    Info: Processing ended: Sun Jan 23 20:54:08 2022
-    Info: Elapsed time: 00:00:10
-    Info: Total CPU time (on all processors): 00:00:26
+    Info: Peak virtual memory: 4773 megabytes
+    Info: Processing ended: Mon Jan 24 10:41:24 2022
+    Info: Elapsed time: 00:00:13
+    Info: Total CPU time (on all processors): 00:00:32
 
 

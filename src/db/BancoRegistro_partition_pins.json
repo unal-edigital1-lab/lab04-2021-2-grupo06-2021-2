@@ -40,19 +40,15 @@
 					"strict" : false
 				},
 				{
-					"name" : "An[2]",
+					"name" : "addrB[1]",
 					"strict" : false
 				},
 				{
-					"name" : "An[3]",
+					"name" : "addrB[0]",
 					"strict" : false
 				},
 				{
-					"name" : "addrA[2]",
-					"strict" : false
-				},
-				{
-					"name" : "addrA[1]",
+					"name" : "addrB[2]",
 					"strict" : false
 				},
 				{
@@ -60,11 +56,15 @@
 					"strict" : false
 				},
 				{
-					"name" : "rst",
+					"name" : "addrA[1]",
 					"strict" : false
 				},
 				{
-					"name" : "datw[0]",
+					"name" : "addrA[2]",
+					"strict" : false
+				},
+				{
+					"name" : "rst",
 					"strict" : false
 				},
 				{
@@ -72,7 +72,7 @@
 					"strict" : false
 				},
 				{
-					"name" : "addrw[0]",
+					"name" : "datw[0]",
 					"strict" : false
 				},
 				{
@@ -81,6 +81,10 @@
 				},
 				{
 					"name" : "addrw[1]",
+					"strict" : false
+				},
+				{
+					"name" : "addrw[0]",
 					"strict" : false
 				},
 				{

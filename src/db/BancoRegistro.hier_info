@@ -76,22 +76,14 @@ rst => ~NO_FANOUT~
 
 
 |Lab04|display:dp
-numA[0] => Mux3.IN3
-numA[1] => Mux2.IN3
-numA[2] => Mux1.IN3
-numA[3] => Mux0.IN3
-numA[4] => Mux3.IN2
-numA[5] => Mux2.IN2
-numA[6] => Mux1.IN2
-numA[7] => Mux0.IN2
-numA[8] => Mux3.IN1
-numA[9] => Mux2.IN1
-numA[10] => Mux1.IN1
-numA[11] => Mux0.IN1
-numA[12] => Mux3.IN0
-numA[13] => Mux2.IN0
-numA[14] => Mux1.IN0
-numA[15] => Mux0.IN0
+numA[0] => Selector3.IN3
+numA[1] => Selector2.IN3
+numA[2] => Selector1.IN3
+numA[3] => Selector0.IN3
+numB[0] => Selector3.IN4
+numB[1] => Selector2.IN4
+numB[2] => Selector1.IN4
+numB[3] => Selector0.IN4
 clk => cfreq[0].CLK
 clk => cfreq[1].CLK
 clk => cfreq[2].CLK
@@ -161,10 +153,8 @@ rst => count.OUTPUTSELECT
 rst => count.OUTPUTSELECT
 rst => an.OUTPUTSELECT
 rst => an.OUTPUTSELECT
-rst => an.OUTPUTSELECT
-rst => an.OUTPUTSELECT
-rst => bcd[1].ENA
 rst => bcd[0].ENA
+rst => bcd[1].ENA
 rst => bcd[2].ENA
 rst => bcd[3].ENA
 

@@ -33,7 +33,7 @@ BancoRegistro #(3,4) registro(
 	
 display dp(
 	.numA(datA),
-	//.numB(datB),
+	.numB(datB),
 	.clk(clk), 
 	.rst(rst), 
 	.sseg(SSeg), 
