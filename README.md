@@ -30,5 +30,13 @@ La coloración de los cables será la siguiente:
 
 El algoritmo a seguir para realizar de manera satisfactoria la actualización del registro será:
 
-1
+1) Indicar la dirección del registro intercambiando el pin en la proboard.
+
+2) Indicar la dirección del registro modificando el deep switch de la tarjeta
+
+3) Ingresar el valor del digito que se quiere guardar en las 4 pines de la derecha del deep switch
+
+4) Actualizar el registro con el pin de color naranja en la tarjeta
+
+5) Actualizar el registro en la placa.
 
