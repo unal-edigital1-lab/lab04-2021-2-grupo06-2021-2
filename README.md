@@ -69,3 +69,31 @@ Valor de 2 guardado en posición dos.
 Valor de b guardado en poosición dos.
 
 Es de vital importancia apreciar que en cada configuración anterior la posición de los pines variará, esto con el proposito de adjuntar diferentes posturas y demostrar la correcta implementación del banco de registros.
+
+## Análisis del código 
+
+Nuestro banco de registro se compone principalmente de 4 archivos, se analizarán los 4 archivos que lo componen a continuación:
+
+En el siguiente archivo se muestra como se incorpora en el display los datos en cuestión, la lectura del orden de los datos de derecha a izquierda 0 a 3 es importante en este caso, posteriormente se define el ciclo que controlará la frecuencia de visualización de este.
+
+[![display.jpg](https://i.postimg.cc/ryrbKGBJ/display.jpg)](https://postimg.cc/0r9Z4S2M)
+
+Display
+
+En la asignación de números se controla la entrada y asignación de los números 0 al 9 A, b, C, E, F. Cada pin tendrá su salida respectiva y se asignará su respectiva codificación
+
+[![BCD-asigniacion-de-numeros.jpg](https://i.postimg.cc/GhbQdkd9/BCD-asigniacion-de-numeros.jpg)](https://postimg.cc/BtwDCP8G)
+
+Asignación de números
+
+Este es el archivo más importante porque es el que modelará el funcionamiento dentro de la tarjeta, un comentario adicional es que el actualizador no está definido para A o B lo que en un caso se nos complicó la salida de datos en el display, lo que se hizo fue definirlo por igual para los dos.
+
+[![banco-de-registro.jpg](https://i.postimg.cc/FzNjF4tw/banco-de-registro.jpg)](https://postimg.cc/gXtw412K)
+
+Banco de registro
+
+Finalmente este archivo compila todos los código anteriores y los coloca en correcto funcionamiento para su modelación.
+
+[![lab4-agrupacion-de-los-archivos-principales.jpg](https://i.postimg.cc/h4NBYtBC/lab4-agrupacion-de-los-archivos-principales.jpg)](https://postimg.cc/Hj0RcHj5)
+
+Compilado de todos los archivos.
