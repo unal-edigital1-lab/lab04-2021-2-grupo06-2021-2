@@ -20,5 +20,15 @@ Se inicia explicando la distribución de los pines dentro del deep switch, para 
 
 [![deep-switch-8-puertos.png](https://i.postimg.cc/Mp9tmWg5/deep-switch-8-puertos.png)](https://postimg.cc/WdJM2PNq)
 
+La manera en la que se controlarán los valores de entrada "High" y "Low" dentro de la tarqueta será con ayuda de la protobard, al modificar las conexiones de la tensión y mandar respectivamente los puntos a tierra o a la tensión, se controlarán las ordenes que reciban la tarjeta, el reseteo, el almacenamiento, entre otros. A continuación se observará la imagen respectiva de las conexiones hechas en el presente laboratorio:
+[![protoboard-y-conexiones.png](https://i.postimg.cc/htMsSSrx/protoboard-y-conexiones.png)](https://postimg.cc/nXjB2fNc)
 
+La coloración de los cables será la siguiente:
+- Negro: Dirección del registro número B
+- Naranja: Actualizador del registro 
+- Blanco: Dirección del registro número A
+
+El algoritmo a seguir para realizar de manera satisfactoria la actualización del registro será:
+
+1
 
